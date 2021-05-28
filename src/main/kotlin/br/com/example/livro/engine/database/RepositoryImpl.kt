@@ -12,12 +12,21 @@ class EngineRepositoryImpl(private val session: CqlSession) : EngineRepository {
         val livros: MutableList<Livro> = mutableListOf()
 
         for (row in rows) {
-            val id = row.getUuid(CqlIdentifier.fromCql("id"))
-            val autor = row.getString(CqlIdentifier.fromCql("autor"))
-            val description = row.getString(CqlIdentifier.fromCql("description"))
-            val numero_de_paginas = row.getString(CqlIdentifier.fromCql("numero_de_paginas"))
-            val isbn = row.getString(CqlIdentifier.fromCql("isbn"))
-            val preco = row.getDouble(CqlIdentifier.fromCql("preco"))
+            val id = row.getUuid(CqlIdentifier.fromCql("id"))!!
+            val autor = row.getString(CqlIdentifier.fromCql("autor"))!!
+            val description = row.getString(CqlIdentifier.fromCql("description"))!!
+            val numero_de_paginas = row.getString(CqlIdentifier.fromCql("numero_de_paginas"))!!
+            val isbn = row.getString(CqlIdentifier.fromCql("isbn"))!!
+            val preco = row.getDouble(CqlIdentifier.fromCql("preco"))!!
+
+            livros.add(Livro(
+                id,
+                autor,
+                description,
+                numero_de_paginas,
+                isbn,
+                preco
+            ))
         }
 
         return livros
