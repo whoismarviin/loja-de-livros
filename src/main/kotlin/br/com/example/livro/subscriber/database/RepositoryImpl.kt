@@ -1,4 +1,4 @@
-package br.com.example.livro.producer.database
+package br.com.example.livro.subscriber.database
 
 import br.com.example.livro.subscriber.model.Livro
 import com.datastax.oss.driver.api.core.CqlSession
