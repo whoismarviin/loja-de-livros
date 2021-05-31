@@ -1,4 +1,4 @@
-package br.com.example.livro.producer.nats.services
+package br.com.example.livro.producer.nats.services.cliente
 
 import br.com.example.livro.producer.model.Livro
 import io.micronaut.nats.annotation.NatsClient

@@ -3,12 +3,13 @@ package br.com.example.livro.engine.database
 import br.com.example.livro.subscriber.model.Livro
 import com.datastax.oss.driver.api.core.CqlIdentifier
 import com.datastax.oss.driver.api.core.CqlSession
+import java.util.*
 import javax.inject.Singleton
 
 @Singleton
 class EngineRepositoryImpl(private val session: CqlSession) : EngineRepository {
     override fun buscaLivros(): MutableList<Livro> {
-        val rows = session.execute("SELECT * FROM Livro").toList()
+        val rows = session.execute("SELECT * FROM livro.Livro").toList()
         val livros: MutableList<Livro> = mutableListOf()
 
         for (row in rows) {
@@ -19,17 +20,23 @@ class EngineRepositoryImpl(private val session: CqlSession) : EngineRepository {
             val isbn = row.getString(CqlIdentifier.fromCql("isbn"))!!
             val preco = row.getDouble(CqlIdentifier.fromCql("preco"))!!
 
-            livros.add(Livro(
-                id,
-                autor,
-                description,
-                numero_de_paginas,
-                isbn,
-                preco
-            ))
+            livros.add(
+                Livro(
+                    id,
+                    autor,
+                    description,
+                    numero_de_paginas,
+                    isbn,
+                    preco
+                )
+            )
         }
 
         return livros
 
+    }
+
+    override fun buscaLivroPorId(id: UUID): Livro {
+        TODO("Not yet implemented")
     }
 }

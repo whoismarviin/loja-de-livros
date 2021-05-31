@@ -15,7 +15,7 @@ class LivroController(private val service: LivroService) {
 
     @Post("cadastro")
     @Produces(APPLICATION_JSON)
-    fun createLivro(@Body request: LivroDto): HttpResponse<Any> {
+    fun createLivro(@Body request: LivroDto): Livro {
         val livro = request.toModel()
         service.send(
             Livro(
@@ -28,7 +28,7 @@ class LivroController(private val service: LivroService) {
             )
         )
 
-        return HttpResponse.ok(livro)
+        return livro
 
 
     }

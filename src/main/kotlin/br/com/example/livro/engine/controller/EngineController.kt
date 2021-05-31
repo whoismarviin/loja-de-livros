@@ -1,11 +1,11 @@
-package br.com.example.livro.engine
+package br.com.example.livro.engine.controller
 
 import br.com.example.livro.engine.database.EngineRepository
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Get
 
 
-class TakeBookData(private val repository: EngineRepository) {
+class EngineController(private val repository: EngineRepository) {
 
     @Get("/")
     fun buscaLivros(): HttpResponse<Any> {

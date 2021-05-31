@@ -1,6 +1,7 @@
 package br.com.example.livro.producer.nats.services
 
 import br.com.example.livro.producer.model.Livro
+import br.com.example.livro.producer.nats.services.cliente.LivroClient
 import javax.inject.Singleton
 
 @Singleton
