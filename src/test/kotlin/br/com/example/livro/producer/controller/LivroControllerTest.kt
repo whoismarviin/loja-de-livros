@@ -3,18 +3,19 @@ package br.com.example.livro.producer.controller
 import br.com.example.livro.producer.dto.LivroDto
 import br.com.example.livro.producer.model.Livro
 import br.com.example.livro.producer.nats.services.LivroService
-import io.kotest.core.spec.style.FunSpec
+import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
-import io.micronaut.http.HttpResponse
+
+import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
 import java.util.*
 
-class LivroControllerTest : FunSpec({
+
+@MicronautTest
+class LivroControllerTest : AnnotationSpec(){
     @InjectMockKs
     lateinit var livroController: LivroController
 
@@ -22,17 +23,26 @@ class LivroControllerTest : FunSpec({
     lateinit var livroService: LivroService
     lateinit var livroDto: LivroDto
     lateinit var livro: Livro
-    lateinit var httpResponse: HttpResponse<Any>
 
     @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
         livroDto = LivroDto(
+            id = UUID.randomUUID(),
             autor = "Vinicius Cruz da Rosa",
             description = "Um livro sobre um lugar bonito preso nos sonhos de um rapaz comum",
             numero_de_paginas = "111",
             isbn = "282901930",
             preco = 89.9
+        )
+
+        livro= Livro(
+            livroDto.id,
+            livroDto.autor,
+            livroDto.description,
+            livroDto.numero_de_paginas,
+            livroDto.isbn,
+            livroDto.preco
         )
     }
 
@@ -41,8 +51,10 @@ class LivroControllerTest : FunSpec({
     fun `request product with sucess`() {
         every { livroService.send(any()) } returns livro
         val result = livroController.createLivro(livroDto)
-        result.shouldBe(livroDto)
+        result.id shouldBe livro.id
     }
 
 
-})
+
+
+}

@@ -3,7 +3,6 @@ package br.com.example.livro.producer.controller
 import br.com.example.livro.producer.dto.LivroDto
 import br.com.example.livro.producer.model.Livro
 import br.com.example.livro.producer.nats.services.LivroService
-import io.micronaut.http.HttpResponse
 import io.micronaut.http.MediaType.APPLICATION_JSON
 import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller

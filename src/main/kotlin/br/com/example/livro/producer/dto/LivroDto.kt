@@ -4,6 +4,7 @@ import br.com.example.livro.producer.model.Livro
 import java.util.*
 
 class LivroDto(
+    val id:UUID,
     val autor: String,
     val description: String,
     val numero_de_paginas: String,
@@ -12,8 +13,7 @@ class LivroDto(
 ) {
     fun toModel(): Livro {
         return Livro(
-            UUID.randomUUID(),
-            autor, description, numero_de_paginas, isbn, preco
+            id, autor, description, numero_de_paginas, isbn, preco
         )
 
     }
