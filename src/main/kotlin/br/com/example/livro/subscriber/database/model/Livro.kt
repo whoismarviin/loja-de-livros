@@ -1,8 +1,7 @@
-package br.com.example.livro.engine.model
+package br.com.example.livro.subscriber.database.model
 
 import io.micronaut.core.annotation.Introspected
 import java.util.*
-
 
 @Introspected
 class Livro(

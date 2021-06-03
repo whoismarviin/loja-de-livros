@@ -1,4 +1,4 @@
-package br.com.example.livro.subscriber.model
+package br.com.example.livro.subscriber.core.model
 
 import io.micronaut.core.annotation.Introspected
 import java.util.*

@@ -1,6 +1,8 @@
 micronaut:
   application:
-    name: lojaDeLivros
+    name: lojaDeLivrosSub
+  server:
+    port: 8082
 cassandra:
   default:
     advanced:

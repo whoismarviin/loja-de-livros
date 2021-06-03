@@ -1,7 +1,7 @@
-package br.com.example.livro.subscriber.listener
+package br.com.example.livro.subscriber.core.listener
 
-import br.com.example.livro.subscriber.database.Repository
-import br.com.example.livro.subscriber.model.Livro
+import br.com.example.livro.subscriber.database.repository.Repository
+import br.com.example.livro.subscriber.infrastructure.model.Livro
 import io.micronaut.nats.annotation.NatsClient
 import io.micronaut.nats.annotation.Subject
 
