@@ -1,0 +1,3 @@
+br.com.example.livro.subscriber.infrastructure.model.$Livro$IntrospectionRef
+br.com.example.livro.subscriber.core.model.$Livro$IntrospectionRef
+br.com.example.livro.subscriber.database.model.$Livro$IntrospectionRef
