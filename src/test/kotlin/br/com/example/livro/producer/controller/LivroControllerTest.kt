@@ -1,10 +1,9 @@
 package br.com.example.livro.producer.controller
 
-import br.com.example.livro.producer.dto.LivroDto
+import br.com.example.livro.entrypoint.controller.LivroController
+import br.com.example.livro.entrypoint.dto.LivroDto
 import br.com.example.livro.producer.model.Livro
-import br.com.example.livro.producer.nats.services.LivroService
 import io.kotest.core.spec.style.AnnotationSpec
-import io.kotest.matchers.shouldBe
 
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.MockKAnnotations
@@ -20,7 +19,7 @@ class LivroControllerTest : AnnotationSpec(){
     lateinit var livroController: LivroController
 
     @MockK
-    lateinit var livroService: LivroService
+    lateinit var livroService: LivroServicePort
     lateinit var livroDto: LivroDto
     lateinit var livro: Livro
 

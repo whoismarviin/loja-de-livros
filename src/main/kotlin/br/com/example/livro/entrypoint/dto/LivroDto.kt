@@ -1,7 +1,8 @@
-package br.com.example.livro.producer.dto
+package br.com.example.livro.entrypoint.dto
 
-import br.com.example.livro.producer.model.Livro
+import br.com.example.livro.entrypoint.model.Livro
 import java.util.*
+
 
 class LivroDto(
     val id:UUID,
